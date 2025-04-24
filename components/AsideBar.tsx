@@ -35,13 +35,13 @@ const AsideBar = () => {
                     </button>
                     <div className="flex flex-row items-center link-btn gap-3 text-3xl font-bold">
                         <UserPlus className="text-white" />
-                        <Link href="/register" className="text-white">
+                        <Link href="/auth/register" className="text-white">
                             Register
                         </Link>
                     </div>
                     <div className="flex flex-row items-center link-btn gap-3 text-3xl font-bold">
                         <LogIn className="text-white" />
-                        <Link href="/Login" className="text-white">
+                        <Link href="/auth/Login" className="text-white">
                             Login
                         </Link>
                     </div>
