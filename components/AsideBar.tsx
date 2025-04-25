@@ -41,7 +41,7 @@ const AsideBar = () => {
                     </div>
                     <div className="flex flex-row items-center link-btn gap-3 text-3xl font-bold">
                         <LogIn className="text-white" />
-                        <Link href="/auth/Login" className="text-white">
+                        <Link href="/auth/login" className="text-white">
                             Login
                         </Link>
                     </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { RegisterSchema } from '@/schemas';
+import { LoginSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
@@ -17,22 +17,21 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
 
     // const [error, setError] = useState<string | undefined>('');
     // const [success, setSuccess] = useState<string | undefined>('');
     const [isPending, startTransition] = useTransition();
 
-    const form = useForm<z.infer<typeof RegisterSchema>>({
-        resolver: zodResolver(RegisterSchema),
+    const form = useForm<z.infer<typeof LoginSchema>>({
+        resolver: zodResolver(LoginSchema),
         defaultValues: {
-            name: '',
             email: '',
             password: '',
         }
     });
 
-    const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+    const onSubmit = (values: z.infer<typeof LoginSchema>) => {
         startTransition(() => {
             // setError(undefined);
             // setSuccess(undefined);
@@ -42,9 +41,9 @@ export const RegisterForm = () => {
 
     return (
         <CardWrapper
-            headerLabel="Register"
-            backButtonLabel='You already have an account?'
-            backButtonHref='/auth/login'
+            headerLabel="Login"
+            backButtonLabel='Don&#39;t have an account?'
+            backButtonHref='/auth/register'
         >
             <Form {...form}>
                 <form
@@ -52,24 +51,6 @@ export const RegisterForm = () => {
                     className='space-y-6 text-secondary'
                 >
                     <div className='space-y-4'>
-                        <FormField
-                            control={form.control}
-                            name='name'
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Full Name</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            className='my-2'
-                                            {...field}
-                                            placeholder='Your name'
-                                            disabled={isPending}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
                         <FormField
                             control={form.control}
                             name='email'
@@ -114,7 +95,7 @@ export const RegisterForm = () => {
                         variant='secondary'
                         disabled={isPending}
                     >
-                        {isPending ? 'Loading...' : 'Register'}
+                        {isPending ? 'Loading...' : 'Login'}
                     </Button>
                 </form>
             </Form>

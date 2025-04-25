@@ -33,7 +33,7 @@ const CardWrapper = ({
             <CardFooter>
                 <Button
                     variant='link'
-                    className='w-full font-normal'
+                    className='w-full font-normal text-secondary'
                     size='sm'
                     asChild
                 >
