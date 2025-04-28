@@ -2,7 +2,7 @@
 
 import { LoginSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTransition } from 'react';
+import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import CardWrapper from './card-wrapper';
@@ -16,11 +16,12 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { login } from '@/lib/actions';
+import { FormError } from '@/components/form-error';
 
 export const LoginForm = () => {
 
-    // const [error, setError] = useState<string | undefined>('');
-    // const [success, setSuccess] = useState<string | undefined>('');
+    const [error, setError] = useState<string | undefined>('');
     const [isPending, startTransition] = useTransition();
 
     const form = useForm<z.infer<typeof LoginSchema>>({
@@ -32,10 +33,12 @@ export const LoginForm = () => {
     });
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+        setError('')
         startTransition(() => {
-            // setError(undefined);
-            // setSuccess(undefined);
-            console.log(values);
+            login(values)
+                .then((data) => {
+                    setError(data?.error)
+            })
         })
     };
 
@@ -89,6 +92,7 @@ export const LoginForm = () => {
                             )}
                         />
                     </div>
+                    <FormError message={error} />
                     <Button
                         type='submit'
                         className='w-full text-primary'

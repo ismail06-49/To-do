@@ -11,7 +11,7 @@ const AsideBar = () => {
 
     return (
         <aside
-            className={`col-span-12 md:col-span-2 primaryColor p-0 md:h-screen md:sticky  md:block`}
+            className={`primaryColor p-0 md:h-screen md:sticky  md:block`}
         >
             <nav className="flex flex-col justify-between items-center">
                 <div className='flex flex-row justify-between items-center w-full p-3'>

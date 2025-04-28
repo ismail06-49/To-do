@@ -29,8 +29,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="grid grid-cols-1 md:grid-cols-12">
-          <AsideBar />
-          {children}
+          <div className="col-span-12 md:col-span-2">
+            <AsideBar />
+          </div>
+          <div className='col-span-12 md:col-span-10'>
+            {children}
+          </div>
         </div>
       </body>
     </html>

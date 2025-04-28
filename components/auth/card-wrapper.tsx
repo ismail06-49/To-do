@@ -23,7 +23,7 @@ const CardWrapper = ({
     backButtonHref
 }: CardWrapperProps) => {
     return (
-        <Card className='w-full max-w-2xl bg-primary h-fit shadow-md col-span-12 md:col-span-10 my-auto mx-auto py-4'>
+        <Card className='w-full max-w-2xl bg-primary h-fit shadow-md my-auto mx-auto py-4'>
             <CardHeader className='text-center'>
                 <h2 className='font-bold text-lg sm:text-2xl text-secondary'>{headerLabel}</h2>
             </CardHeader>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="col-span-12 md:col-span-10 secondColor flex flex-col justify-between items-center py-4 h-screen">
+    <div className="secondColor flex flex-col justify-between items-center py-4 h-screen">
       <div className="flex flex-row justify-center items-center">
         <h1 className="text-4xl font-bold text-center">Welcome to Todos App</h1>
       </div>
