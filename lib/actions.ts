@@ -9,6 +9,7 @@ import { AuthError } from 'next-auth';
 import * as z from 'zod';
 import { uuid } from '@sanity/uuid';
 import { writeClient } from '@/sanity/lib/write-client';
+import { DEFAULT_LOGIN_REDIRECT } from '@/routes';
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
     const validatedFields = RegisterSchema.safeParse(values);
@@ -54,11 +55,11 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
         await signIn("credentials", {
             email,
             password,
-            redirectTo: '/',
+            redirectTo: DEFAULT_LOGIN_REDIRECT,
         });
     } catch (error) {
         if (error instanceof AuthError) {
-            switch (error.type) {
+            switch (error.name) {
                 case 'CredentialsSignin':
                     return { error: 'Invalid credentials!' };
                 default:
