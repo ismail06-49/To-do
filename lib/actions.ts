@@ -1,6 +1,6 @@
 'use server';
 
-import { signIn } from '@/auth';
+import { signIn, signOut } from '@/auth';
 import { client } from '@/sanity/lib/client';
 import { USER_BY_GMAIL_QUERY } from '@/sanity/lib/queries';
 import { LoginSchema, RegisterSchema } from '@/schemas';
@@ -68,4 +68,10 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
         }
         throw error;
     }
+}
+
+export const logout = async () => {
+    await signOut({
+        redirectTo: '/'
+    });
 }
