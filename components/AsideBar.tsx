@@ -37,8 +37,7 @@ const AsideBar = () => {
                     >
                         <X /> 
                     </button>
-                    {user ? (
-                    <>
+                    {user ? (<>
                         <Link href="/dashboard" className="text-white">
                             <div className="flex flex-row items-center link-btn gap-3 text-3xl font-bold">
                                 <House />
@@ -68,8 +67,7 @@ const AsideBar = () => {
                             Logout
                         </div>
                     </>
-                    ): (
-                        <>
+                    ) : (<>
                             <Link href="/auth/register" className="text-white">
                                 <div className="flex flex-row items-center link-btn gap-3 text-3xl font-bold">
                                     <UserPlus />
