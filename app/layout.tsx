@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import AsideBar from "@/components/AsideBar";
-import { SessionProvider } from "next-auth/react";
-import { auth } from "@/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,24 +23,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await auth();
-
   return (
     <html lang="en">
-      <SessionProvider session={session}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-12">
-            <div className="col-span-12 md:col-span-2">
-              <AsideBar />
-            </div>
-            <div className='col-span-12 md:col-span-10'>
-              {children}
-            </div>
-          </div>
+          {children}
         </body>
-      </SessionProvider>
     </html>
   );
 }
