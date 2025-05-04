@@ -13,8 +13,8 @@ const RootLayout = ({
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-12">
-            <aside className="col-span-12 md:col-span-2 primaryColor p-0 md:h-screen md:sticky md:block">
+        <div className="grid grid-cols-1 md:grid-cols-10">
+            <aside className="col-span-10 md:col-span-2 primaryColor p-0 md:h-screen md:sticky md:block">
                 <nav className="flex flex-col justify-between items-center">
                     <div className='flex flex-row justify-between items-center w-full p-3'>
                         <Link href="/" className="link-btn text-4xl font-bold my-3">
@@ -50,7 +50,7 @@ const RootLayout = ({
                     </div>
                 </nav>
             </aside>
-            <div className='col-span-12 md:col-span-10'>
+            <div className='col-span-10 md:col-span-8'>
                 {children}
             </div>
         </div>
